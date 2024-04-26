@@ -12,9 +12,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: SvgPicture.asset(
-        logo,
+      leading: Container(
+        margin: EdgeInsets.only(left: 10.w),
+        child: SvgPicture.asset(
+          logo,
+        ),
       ),
+      centerTitle: false,
+      leadingWidth: 130.w,
       actions: [
         SvgPicture.asset(
           searchIcon,

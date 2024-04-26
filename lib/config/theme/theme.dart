@@ -18,11 +18,14 @@ class AppBorderRadius {
       const BorderRadius.all(Radius.circular(4.0)).w;
   static BorderRadius borderRadius8 =
       const BorderRadius.all(Radius.circular(8.0)).w;
+  static BorderRadius borderRadius16 =
+      const BorderRadius.all(Radius.circular(16.0)).w;
 }
 
 class AppFonts {
   static double fontSize9 = 9.sp;
   static double fontSize12 = 12.sp;
   static double fontSize14 = 14.sp;
+  static double fontSize16 = 16.sp;
   static double fontSize24 = 24.sp;
 }

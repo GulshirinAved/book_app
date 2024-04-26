@@ -5,6 +5,7 @@ import 'package:book_app/presentation/Screens/Home/components/bookType_card.dart
 import 'package:book_app/presentation/Screens/Home/components/newBook_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeSceen extends StatelessWidget {
   const HomeSceen({super.key});
@@ -59,22 +60,28 @@ class HomeSceen extends StatelessWidget {
             //Book New Added
             BookSlider(
               bookList: newAddedBook,
+              onTap: () => context.pushNamed('allAudioBook'),
             ),
             //Top Audio Book
             BookSlider(
               bookList: audioBook,
+              isAudioBook: true,
+              onTap: () => context.pushNamed('allAudioBook'),
             ),
             //Top Books
             BookSlider(
               bookList: topBook,
+              onTap: () => context.pushNamed('allAudioBook'),
             ),
             //Tradink Book
             BookSlider(
               bookList: tradinkBook,
+              onTap: () => context.pushNamed('allAudioBook'),
             ),
             //Bestseller Book
             BookSlider(
               bookList: bestSellerBook,
+              onTap: () => context.pushNamed('allAudioBook'),
             ),
           ],
         ),

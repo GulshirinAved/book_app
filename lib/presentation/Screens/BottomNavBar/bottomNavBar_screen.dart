@@ -4,6 +4,7 @@ import 'package:book_app/config/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomNavBar extends StatelessWidget {
   final Widget child;
@@ -23,6 +24,7 @@ class BottomNavBar extends StatelessWidget {
               context
                   .read<BottomNavBarBloc>()
                   .add(TriggerBottomNavBarEvent(value));
+              GoRouter.of(context).pushNamed(indexRouteNames[value]);
             },
             unselectedItemColor: AppColors.whiteColor,
             selectedItemColor: AppColors.blueColor,

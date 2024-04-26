@@ -13,11 +13,13 @@ const String bookIcon = 'assets/icons/book.svg';
 const String fireIcon = 'assets/icons/fire.png';
 const String searchIcon = 'assets/icons/search.svg';
 const String starIcon = 'assets/icons/star.svg';
-const String arrowRightIcon = 'assets/icons/arrowRight.svg';
 
 //fonts
 const String fontFireSans = 'FiraSans-Regular';
 const String fontInter = 'Inter';
+
+//Bottom Bar Screen List
+List indexRouteNames = ['/', '/whatToChoose', '/library', '/profile'];
 
 //Book Type
 List bookType = [

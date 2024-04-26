@@ -1,15 +1,21 @@
 import 'package:book_app/config/constants/constants.dart';
 import 'package:book_app/config/theme/theme.dart';
 import 'package:book_app/presentation/Screens/Home/components/all_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class BookSlider extends StatelessWidget {
   final List bookList;
-  const BookSlider({
+  final bool isAudioBook;
+  VoidCallback onTap;
+  BookSlider({
     required this.bookList,
+    this.isAudioBook = false,
+    required this.onTap,
     super.key,
   });
 
@@ -23,7 +29,7 @@ class BookSlider extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: AppBorderRadius.borderRadius8,
-        border: Border.all(color: AppColors.blackColor, width: 0.2),
+        border: Border.all(color: AppColors.greyColor1, width: 0.2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +43,9 @@ class BookSlider extends StatelessWidget {
                   fontSize: AppFonts.fontSize12,
                 ),
               ),
-              const AllButton(),
+              AllButton(
+                onTap: onTap,
+              ),
             ],
           ),
           Text(
@@ -57,14 +65,46 @@ class BookSlider extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 80.w,
-                      margin:
-                          EdgeInsets.all(12.h).copyWith(bottom: 4.h, left: 0),
-                      child: Image.asset(
-                        bookList[index]['image'],
-                      ),
-                    ),
+                    isAudioBook == true
+                        ? Stack(
+                            children: [
+                              Container(
+                                width: 80.w,
+                                margin: EdgeInsets.all(12.h)
+                                    .copyWith(bottom: 4.h, left: 0),
+                                child: Image.asset(
+                                  bookList[index]['image'],
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 10.h,
+                                right: 5.w,
+                                child: Container(
+                                  padding: EdgeInsets.all(2.w),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.whiteColor,
+                                    border: Border.all(
+                                      color: AppColors.greyColor1,
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.headphones,
+                                    color: AppColors.blackColor,
+                                    size: 15.h,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Container(
+                            width: 80.w,
+                            margin: EdgeInsets.all(12.h)
+                                .copyWith(bottom: 4.h, left: 0),
+                            child: Image.asset(
+                              bookList[index]['image'],
+                            ),
+                          ),
                     SizedBox(
                       height: 12.h,
                       width: 80.w,
