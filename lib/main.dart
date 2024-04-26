@@ -11,9 +11,18 @@ void main() {
       builder: (context, child) => MaterialApp.router(
         title: 'Book App',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.greyColor1,
+          backgroundColor: AppColors.whiteColor,
+          colorSchemeSeed: AppColors.whiteColor,
+          primaryColorLight: AppColors.whiteColor,
+          scaffoldBackgroundColor: AppColors.whiteColor,
+          appBarTheme: AppBarTheme(
+            elevation: 0,
+            foregroundColor: AppColors.whiteColor,
+            backgroundColor: AppColors.whiteColor,
+            shadowColor: AppColors.whiteColor,
+            surfaceTintColor: AppColors.whiteColor,
           ),
+          useMaterial3: true,
           fontFamily: fontFireSans,
         ),
         debugShowCheckedModeBanner: false,

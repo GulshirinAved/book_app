@@ -2,7 +2,6 @@ import 'package:book_app/config/constants/constants.dart';
 import 'package:book_app/config/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BookTypeCard extends StatelessWidget {
   final int index;
@@ -31,7 +30,7 @@ class BookTypeCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
+          Image.asset(
             bookType[index]['icon'],
           ),
           SizedBox(

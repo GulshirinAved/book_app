@@ -1,34 +1,44 @@
 import 'package:book_app/config/constants/constants.dart';
 import 'package:book_app/config/theme/theme.dart';
+import 'package:book_app/presentation/Screens/Home/components/all_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class NewBook extends StatelessWidget {
-  const NewBook({
+class BookSlider extends StatelessWidget {
+  final List bookList;
+  const BookSlider({
+    required this.bookList,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.symmetric(vertical: 15.h),
+      padding: const EdgeInsets.all(16),
+      margin: EdgeInsets.symmetric(vertical: 10.h),
       height: 240.h,
       width: 327.w,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: AppBorderRadius.borderRadius8,
-        border: Border.all(color: AppColors.greyColor1, width: 0.2),
+        border: Border.all(color: AppColors.blackColor, width: 0.2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Новые книги и аудиокниги',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: AppFonts.fontSize12,
-            ),
+          Row(
+            children: [
+              Text(
+                'Недавно Добавленные книги',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: AppFonts.fontSize12,
+                ),
+              ),
+              const AllButton(),
+            ],
           ),
           Text(
             '54 книг',
@@ -52,7 +62,7 @@ class NewBook extends StatelessWidget {
                       margin:
                           EdgeInsets.all(12.h).copyWith(bottom: 4.h, left: 0),
                       child: Image.asset(
-                        bookImage,
+                        bookList[index]['image'],
                       ),
                     ),
                     SizedBox(
@@ -66,10 +76,9 @@ class NewBook extends StatelessWidget {
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.star,
+                              SvgPicture.asset(
+                                starIcon,
                                 color: AppColors.yellowColor,
-                                size: 12.h,
                               ),
                             ],
                           );
@@ -82,7 +91,7 @@ class NewBook extends StatelessWidget {
                         maxLines: 2,
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.ellipsis,
-                        'Позитивная организация',
+                        bookList[index]['name'].toString(),
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: AppFonts.fontSize12,
@@ -92,11 +101,11 @@ class NewBook extends StatelessWidget {
                     Text(
                       'Роберт Куинн',
                       style: TextStyle(
-                        color: AppColors.darkgreyColor,
+                        color: AppColors.greyColor2,
                         fontSize: AppFonts.fontSize9,
                         fontWeight: FontWeight.w400,
                       ),
-                    )
+                    ),
                   ],
                 );
               },

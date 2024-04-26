@@ -17,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
           body: child,
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: state.index,
-            backgroundColor: AppColors.blackGreyColor,
+            backgroundColor: AppColors.whiteColor,
             type: BottomNavigationBarType.fixed,
             onTap: (value) {
               context
@@ -25,19 +25,15 @@ class BottomNavBar extends StatelessWidget {
                   .add(TriggerBottomNavBarEvent(value));
             },
             unselectedItemColor: AppColors.whiteColor,
-            selectedItemColor: AppColors.yellowColor1,
+            selectedItemColor: AppColors.blueColor,
             selectedLabelStyle: TextStyle(
-              color: AppColors.yellowColor1,
+              color: AppColors.blueColor,
               fontFamily: fontInter,
               fontWeight: FontWeight.w700,
               fontSize: AppFonts.fontSize12,
             ),
-            unselectedLabelStyle: TextStyle(
-              color: AppColors.whiteColor,
-              fontFamily: fontInter,
-              fontWeight: FontWeight.w700,
-              fontSize: AppFonts.fontSize12,
-            ),
+            showUnselectedLabels: false,
+            elevation: 0,
             items: bottomtabs(context, state.index),
           ),
         );
@@ -50,29 +46,29 @@ List<BottomNavigationBarItem> bottomtabs(BuildContext context, int selected) {
   return [
     BottomNavigationBarItem(
       icon: SvgPicture.asset(
-        personIcon,
-        color: selected == 0 ? AppColors.yellowColor1 : AppColors.whiteColor,
+        homeIcon,
+        color: selected == 0 ? AppColors.blueColor : AppColors.greyColor1,
       ),
-      label: 'Мои книги',
+      label: 'Главная',
     ),
     BottomNavigationBarItem(
       icon: SvgPicture.asset(
         personIcon,
-        color: selected == 1 ? AppColors.yellowColor1 : AppColors.whiteColor,
+        color: selected == 1 ? AppColors.blueColor : AppColors.greyColor1,
       ),
       label: 'Что выбрать',
     ),
     BottomNavigationBarItem(
       icon: SvgPicture.asset(
-        searchIcon,
-        color: selected == 2 ? AppColors.yellowColor1 : AppColors.whiteColor,
+        bookIcon,
+        color: selected == 2 ? AppColors.blueColor : AppColors.greyColor1,
       ),
-      label: 'Поиск',
+      label: 'Библиотека',
     ),
     BottomNavigationBarItem(
       icon: SvgPicture.asset(
         personIcon,
-        color: selected == 3 ? AppColors.yellowColor1 : AppColors.whiteColor,
+        color: selected == 3 ? AppColors.blueColor : AppColors.greyColor1,
       ),
       label: 'Профиль',
     ),
