@@ -13,13 +13,18 @@ const String bookIcon = 'assets/icons/book.svg';
 const String fireIcon = 'assets/icons/fire.png';
 const String searchIcon = 'assets/icons/search.svg';
 const String starIcon = 'assets/icons/star.svg';
+const String headphoneIcon = 'assets/icons/headphone.svg';
+const String libraryIcon = 'assets/icons/library.svg';
+const String arrowDownIcon = 'assets/icons/arrowDown.svg';
 
 //fonts
 const String fontFireSans = 'FiraSans-Regular';
 const String fontInter = 'Inter';
 
+//Language
+List<String> language = ['En', 'Ru', 'Tm'];
 //Bottom Bar Screen List
-List indexRouteNames = ['/', '/whatToChoose', '/library', '/profile'];
+List indexRouteNames = ['home', 'whatToChoose', 'library', 'profile'];
 
 //Book Type
 List bookType = [
@@ -175,3 +180,11 @@ List<Map<String, String>> bestSellerBook = [
     'name': 'Позитивная организация',
   }
 ];
+List categoryOption = [
+  'Фантастика',
+  'Фентези',
+  'Бизнес-книги',
+  'Любовные романы',
+  'Книги по психологии',
+];
+List languageOptoin = ['Inlisce', 'Rusca'];

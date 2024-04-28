@@ -1,9 +1,7 @@
 import 'package:book_app/config/constants/constants.dart';
 import 'package:book_app/config/theme/theme.dart';
 import 'package:book_app/presentation/Screens/Home/components/all_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,18 +9,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BookSlider extends StatelessWidget {
   final List bookList;
   final bool isAudioBook;
-  VoidCallback onTap;
+  final String topTitle;
   BookSlider({
     required this.bookList,
     this.isAudioBook = false,
-    required this.onTap,
+    required this.topTitle,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
       margin: EdgeInsets.symmetric(vertical: 10.h),
       height: 240.h,
       width: 327.w,
@@ -36,16 +33,16 @@ class BookSlider extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                'Недавно Добавленные книги',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: AppFonts.fontSize12,
+              Expanded(
+                child: Text(
+                  topTitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: AppFonts.fontSize12,
+                  ),
                 ),
               ),
-              AllButton(
-                onTap: onTap,
-              ),
+              AllButton(),
             ],
           ),
           Text(
